@@ -6,6 +6,7 @@ import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -69,47 +70,38 @@ private val DarkColors = darkColorScheme(
 )
 
 private val ChildLightColors = lightColorScheme(
-    primary = ChildLightPrimary,
-    onPrimary = Color_White,
-    primaryContainer = ChildLightPrimaryContainer,
-    onPrimaryContainer = Color_00332F,
-    secondary = ChildLightSecondary,
-    onSecondary = Color_White,
-    secondaryContainer = ChildLightSecondaryContainer,
-    onSecondaryContainer = Color_3A2200,
-    background = ChildLightBackground,
-    onBackground = Color_201A14,
-    surface = ChildLightSurface,
-    onSurface = Color_201A14,
-    surfaceVariant = ChildLightSurfaceVariant,
-    onSurfaceVariant = ChildLightOnSurfaceVariant
+    primary = Color(0xFF0D9488),
+    onPrimary = Color(0xFFFFFFFF),
+    primaryContainer = Color(0xFFA7F3EB),
+    onPrimaryContainer = Color(0xFF00332F),
+    secondary = Color(0xFFEA7317),
+    onSecondary = Color(0xFFFFFFFF),
+    secondaryContainer = Color(0xFFFFE0B8),
+    onSecondaryContainer = Color(0xFF3A2200),
+    background = Color(0xFFFFF7EC),
+    onBackground = Color(0xFF201A14),
+    surface = Color(0xFFFFFFFF),
+    onSurface = Color(0xFF201A14),
+    surfaceVariant = Color(0xFFFDF0DC),
+    onSurfaceVariant = Color(0xFF5B4A38)
 )
 
 private val ChildDarkColors = darkColorScheme(
-    primary = ChildDarkPrimary,
-    onPrimary = Color_00382F,
-    primaryContainer = ChildDarkPrimaryContainer,
-    onPrimaryContainer = Color_A7F3EB,
-    secondary = ChildDarkSecondary,
-    onSecondary = Color_3A2200,
-    secondaryContainer = ChildDarkSecondaryContainer,
-    onSecondaryContainer = Color_FFDBB8,
-    background = ChildDarkBackground,
-    onBackground = Color_EFE6DA,
-    surface = ChildDarkSurface,
-    onSurface = Color_EFE6DA,
-    surfaceVariant = ChildDarkSurfaceVariant,
-    onSurfaceVariant = ChildDarkOnSurfaceVariant
+    primary = Color(0xFF5EEAD4),
+    onPrimary = Color(0xFF00382F),
+    primaryContainer = Color(0xFF11655C),
+    onPrimaryContainer = Color(0xFFA7F3EB),
+    secondary = Color(0xFFFFB877),
+    onSecondary = Color(0xFF3A2200),
+    secondaryContainer = Color(0xFF8A4A0B),
+    onSecondaryContainer = Color(0xFFFFDBB8),
+    background = Color(0xFF141210),
+    onBackground = Color(0xFFEFE6DA),
+    surface = Color(0xFF1D1A16),
+    onSurface = Color(0xFFEFE6DA),
+    surfaceVariant = Color(0xFF2A251E),
+    onSurfaceVariant = Color(0xFFD6C6B4)
 )
-
-private val Color_White = androidx.compose.ui.graphics.Color(0xFFFFFFFF)
-private val Color_00332F = androidx.compose.ui.graphics.Color(0xFF00332F)
-private val Color_3A2200 = androidx.compose.ui.graphics.Color(0xFF3A2200)
-private val Color_201A14 = androidx.compose.ui.graphics.Color(0xFF201A14)
-private val Color_00382F = androidx.compose.ui.graphics.Color(0xFF00382F)
-private val Color_A7F3EB = androidx.compose.ui.graphics.Color(0xFFA7F3EB)
-private val Color_FFDBB8 = androidx.compose.ui.graphics.Color(0xFFFFDBB8)
-private val Color_EFE6DA = androidx.compose.ui.graphics.Color(0xFFEFE6DA)
 
 fun sahandTypography(childMode: Boolean): Typography {
     val scale = if (childMode) 1.12f else 1f

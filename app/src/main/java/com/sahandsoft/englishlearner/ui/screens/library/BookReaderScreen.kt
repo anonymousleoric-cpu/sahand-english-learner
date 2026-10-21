@@ -44,6 +44,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
 import com.sahandsoft.englishlearner.data.db.BookEntity
 import com.sahandsoft.englishlearner.data.db.BookPageEntity
+import com.sahandsoft.englishlearner.data.db.BookProgressEntity
 import com.sahandsoft.englishlearner.data.db.SahandDatabase
 import com.sahandsoft.englishlearner.data.repo.ProgressRepository
 import com.sahandsoft.englishlearner.data.seed.BookPageContentDto

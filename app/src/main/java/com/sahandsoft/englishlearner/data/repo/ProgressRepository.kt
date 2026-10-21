@@ -5,6 +5,7 @@ import com.sahandsoft.englishlearner.data.db.QuizResultEntity
 import com.sahandsoft.englishlearner.data.db.SahandDatabase
 import com.sahandsoft.englishlearner.data.db.WordEntity
 import com.sahandsoft.englishlearner.data.db.WordProgressEntity
+import androidx.room.withTransaction
 import com.sahandsoft.englishlearner.domain.DayUtils
 import com.sahandsoft.englishlearner.domain.Srs
 import kotlinx.coroutines.flow.Flow
@@ -127,7 +128,7 @@ class ProgressRepository @Inject constructor(
     /* ---------- بازنشانی ---------- */
 
     suspend fun resetAllProgress() {
-        db.withTransactionCompat {
+        db.withTransaction {
             db.progressDao().clear()
             db.storyDao().clearProgress()
             db.bookDao().clearProgress()
@@ -135,9 +136,5 @@ class ProgressRepository @Inject constructor(
             db.quizDao().clear()
             db.activityDao().clear()
         }
-    }
-
-    private suspend fun SahandDatabase.withTransactionCompat(block: suspend () -> Unit) {
-        androidx.room.withTransaction(this) { block() }
     }
 }

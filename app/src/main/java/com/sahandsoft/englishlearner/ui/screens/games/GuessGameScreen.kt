@@ -21,8 +21,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -37,6 +39,7 @@ import com.sahandsoft.englishlearner.ui.components.EnText
 import com.sahandsoft.englishlearner.ui.components.EmptyView
 import com.sahandsoft.englishlearner.ui.components.SahandTopBar
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -229,16 +232,17 @@ fun GuessGameScreen(nav: NavHostController, vm: GuessGameViewModel = hiltViewMod
 
             Spacer(Modifier.height(20.dp))
 
-            // کاشی‌های حروف
-            round.letters.chunked(4).forEach { rowIndices ->
+            // کاشی‌های حروف (با اندیس واقعی)
+            val letterTiles = remember(round.word.en) { round.letters.withIndex().toList() }
+            letterTiles.chunked(4).forEach { rowTiles ->
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(vertical = 4.dp)) {
-                    rowIndices.forEach { idx ->
+                    rowTiles.forEach { (tileIndex, tileChar) ->
                         OutlinedButton(
-                            onClick = { vm.tapLetter(idx) },
-                            enabled = !used.contains(idx) && !finished,
+                            onClick = { vm.tapLetter(tileIndex) },
+                            enabled = !used.contains(tileIndex) && !finished,
                             modifier = Modifier.size(56.dp)
                         ) {
-                            EnText(round.letters[idx].toString(), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                            EnText(tileChar.toString(), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                         }
                     }
                 }
